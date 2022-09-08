@@ -4,7 +4,7 @@
 #define ABG_TIMER4
 #include "ArduboyG.h"
 // ArduboyG a;
-ArduboyG_Config<ABG_Mode::L3> a;
+ArduboyG_Config<ABG_Mode::L4_Triplane> a;
 
 #include <Arduboy2.h>
 #include <ArduboyPlaytune.h>
@@ -33,16 +33,7 @@ void drawTile(int16_t x, int16_t y, const uint8_t *bitmap) {
 
 void render() {
 
-  //int offset=0;
-  //int mt = frameNumber * 1024;
-  //for(int y=0; y<8; y++){
-  //  for(int x=0; x<1024; x++){
-  //    screenBuffer[offset++] = pgm_read_byte(background + mt++);
-  //  }
-  //}
-
-  a.drawOverwrite(0, 0, background, 0);
-  //a.drawBitmap(0,0, background,128,64);
+  Sprites::drawOverwrite(0, 0, background, frameNumber);
   if(++frameNumber==3) frameNumber=0;
 }
 
